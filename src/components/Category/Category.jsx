@@ -34,7 +34,6 @@ export default function LabelBottomNavigation() {
     }
     
     
-    console.log('newValue: ' + newValue)
   };
 
   return (

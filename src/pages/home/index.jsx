@@ -4,20 +4,31 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 import ButtonAppBar from "../../components/NavBar/NavBar"
 import ItemDetailContainer from "../../components/ItemListContainer/ItemDetailContainer"
 import { CartContext } from "../../context/CartContext"
+import { useEffect, useState } from "react"
 
 
 const Home = () => {
 
-    const carrito = []
+    const [totalCarrito, setTotalCarrito] = useState(0)
 
+    const [carrito, setCarrito] = useState([])
+   
+    useEffect(() => {
+        setTotalCarrito(carrito.reduce((acum, objeto) => acum + objeto.cantidad, 0))
+    }, [carrito])
+    
+
+
+    // const agregarAlCarrito = (itemAgregado) => {
+    //     setCarrito([...carrito, itemAgregado])
+
+    // }
 
     return(
-        <CartContext.Provider value={'hola'}>    
+        <CartContext.Provider value={{carrito, setCarrito ,totalCarrito }}>    
             <BrowserRouter>
                 <ButtonAppBar />
                 <LabelBottomNavigation /> 
-                
-
                 <Routes>
                     <Route path="/" element={<ItemListContainer titulo='PRODUCTOS'/>} />
                     <Route path="category/:id" element={<ItemListContainer />} />

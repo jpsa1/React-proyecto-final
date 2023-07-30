@@ -27,9 +27,6 @@ const ItemListContainer = (props) => {
                 }
             )        
     },[categoria])
-
-
-    dato && console.log(dato)
     
     return (
             <div>
