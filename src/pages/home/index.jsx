@@ -5,7 +5,8 @@ import ButtonAppBar from "../../components/NavBar/NavBar"
 import ItemDetailContainer from "../../components/ItemListContainer/ItemDetailContainer"
 import { CartContext } from "../../context/CartContext"
 import { useEffect, useState } from "react"
-
+import Carrito from "../../components/Carrito/Carrito"
+import Checkout from "../../components/Checkout/Checkout"
 
 const Home = () => {
 
@@ -18,12 +19,6 @@ const Home = () => {
     }, [carrito])
     
 
-
-    // const agregarAlCarrito = (itemAgregado) => {
-    //     setCarrito([...carrito, itemAgregado])
-
-    // }
-
     return(
         <CartContext.Provider value={{carrito, setCarrito ,totalCarrito }}>    
             <BrowserRouter>
@@ -33,6 +28,8 @@ const Home = () => {
                     <Route path="/" element={<ItemListContainer titulo='PRODUCTOS'/>} />
                     <Route path="category/:id" element={<ItemListContainer />} />
                     <Route path="item/:id" element={<ItemDetailContainer />} />
+                    <Route path="/carrito" element={<Carrito />} />
+                    <Route path="/checkout" element={<Checkout />} />
                 </Routes>
 
             </BrowserRouter>
