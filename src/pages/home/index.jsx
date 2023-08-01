@@ -10,17 +10,24 @@ import Checkout from "../../components/Checkout/Checkout"
 
 const Home = () => {
 
-    const [totalCarrito, setTotalCarrito] = useState(0)
+    const [cantidadCarrito, setCantidadCarrito] = useState(0)
 
     const [carrito, setCarrito] = useState([])
    
     useEffect(() => {
-        setTotalCarrito(carrito.reduce((acum, objeto) => acum + objeto.cantidad, 0))
+        setCantidadCarrito(carrito.reduce((acum, objeto) => acum + objeto.cantidad, 0))
     }, [carrito])
-    
+
+    const totalCarrito = () => {
+        return carrito.reduce((acum, objeto) => acum + objeto.precio * objeto.cantidad, 0)
+    }
+         
+    const vaciarCarrito = () => {
+        setCarrito([])
+    }
 
     return(
-        <CartContext.Provider value={{carrito, setCarrito ,totalCarrito }}>    
+        <CartContext.Provider value={{carrito, setCarrito ,cantidadCarrito, totalCarrito, vaciarCarrito }}>    
             <BrowserRouter>
                 <ButtonAppBar />
                 <LabelBottomNavigation /> 

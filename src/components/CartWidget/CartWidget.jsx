@@ -8,12 +8,12 @@ import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
 
-    const { totalCarrito } = useContext(CartContext)
+    const { cantidadCarrito } = useContext(CartContext)
 
     return (
-        <div>
+        <div >
             <Link to='/carrito'>
-                <Badge badgeContent={ totalCarrito } color="primary">
+                <Badge badgeContent={ cantidadCarrito } color="primary">
                     <ShoppingCartOutlinedIcon color='success' fontSize='large' sx={{color: 'white'}}/>
                 </Badge>
             </Link>

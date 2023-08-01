@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
@@ -22,7 +21,6 @@ export default function ButtonAppBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
           </IconButton>
             <Typography className='titulo' variant="h5" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/' style={{color: 'white', textDecoration: 'none'}} >DAKETUN</Link>

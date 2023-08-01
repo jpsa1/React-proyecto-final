@@ -16,17 +16,17 @@ export default function LabelBottomNavigation() {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
     switch (newValue) {
-      case 'celulares':
-        navigate('category/celulares');
+      case 'esquinero':
+        navigate('category/esquinero');
         break;
-      case 'remeras':
-        navigate('category/remeras');
+      case 'dos-cuerpos':
+        navigate('category/dos-cuerpos');
         break;
-      case 'calzado':
-        navigate('category/calzado');
+      case 'matera':
+        navigate('category/matera');
         break;
-      case 'electrodomesticos':
-        navigate('category/electrodomesticos');
+      case 'sofa':
+        navigate('category/sofa');
         break;
 
       default:
@@ -39,23 +39,23 @@ export default function LabelBottomNavigation() {
   return (
     <BottomNavigation sx={{ width: 'auto' }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-        label="Celulares"
-        value="celulares"
+        label="Esquinero"
+        value="esquinero"
         icon={<CategoryIcon />}
       />
       <BottomNavigationAction
-        label="Remeras"
-        value="remeras"
+        label="Dos Cuerpos"
+        value="dos-cuerpos"
         icon={<ClassIcon />}
       />
       <BottomNavigationAction
-        label="Calzado"
-        value="calzado"
+        label="Matera"
+        value="matera"
         icon={<AutoAwesomeMosaicIcon />}
       />
       <BottomNavigationAction 
-        label="Electrodomesticos" 
-        value="electrodomesticos" 
+        label="Sofa" 
+        value="sofa" 
         icon={<BookmarkIcon />} />
       </BottomNavigation>
   );

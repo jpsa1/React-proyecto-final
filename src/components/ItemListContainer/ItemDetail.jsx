@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
+import Button from '@mui/material/Button';
+
 
 const ItemDetail = ({item}) => {
   
@@ -47,18 +49,20 @@ const ItemDetail = ({item}) => {
     <div >
         <div style={estilo}>
             <h1>{item.titulo}</h1>
-            <img width={500} src={item.imagen} alt={item.titulo} />
-            <h5>{}</h5> {/*Esto no se porque esta, pero lo deje*/}
+            <img width={400} src={item.imagen} alt={item.titulo} />
             <h2>Precio: {item.precio}</h2>
-            <h4>Descipcion: {item.descripcion}</h4>
+            <h4 style={{ marginLeft: '35%', marginRight: '35%' }}>Descipcion: {item.descripcion}</h4>
             
-            <button onClick={handleRestar}> - </button>
-            <p> {cantidad} </p>
-            <button onClick={handleSumar}> + </button>
+            <div style={{ display: 'flex' }}>
+                <Button variant="contained" onClick={handleRestar}> - </Button>
+                <h3 style={{ margin: '15px' }}>{cantidad} </h3>
+                <Button variant="contained" onClick={handleSumar}> + </Button>
+            </div>
+            
+            <br />
+            <Button variant="contained" onClick={handleAgregarCarrito}>Agregar al carrito</Button>
             <br />
 
-            <button onClick={handleAgregarCarrito}>Agregar al carrito</button>
-            <br />
         </div>
     </div>
   )
