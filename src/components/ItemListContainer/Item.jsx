@@ -13,13 +13,15 @@ export default function Item({producto, id}) {
   return (
     <Card sx={{ maxWidth: 345, textAlign: 'center', margin: 5 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={producto.imagen}
-          alt={producto.titulo}
-          height={350}
-        />
+        <Link to={`/item/${id}`}>  
+          <CardMedia
+            component="img"
+            height="140"
+            image={producto.imagen}
+            alt={producto.titulo}
+            height={350}
+          />
+        </Link>
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             {producto.titulo}

@@ -12,7 +12,7 @@ const ItemDetail = ({item}) => {
 
    
     const estilo = {
-        backgroundColor: 'lightblue',
+        backgroundColor: '#EBF3FF',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

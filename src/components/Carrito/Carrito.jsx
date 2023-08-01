@@ -19,7 +19,7 @@ import Paper from '@mui/material/Paper';
 
 const Carrito = () => {
   
-    const {carrito, totalCarrito} = useContext(CartContext)
+    const {carrito, totalCarrito, vaciarCarrito} = useContext(CartContext)
     
     return (
     <div style={{ marginRight: '30%', marginLeft: '30%' }}>
@@ -55,38 +55,18 @@ const Carrito = () => {
         <h2 style={{color:'lightblue', fontSize:'20px', textAlign:'right'}}>COMPRA TOTAL: $ {totalCarrito()}</h2>
         
         <br />
-        <Link to="/checkout">
-            <Button variant="contained">REALIZAR PEDIDO</Button>
-        </Link>
-    
+        {carrito.length > 0 && (    
+            <>
+                <Link to="/checkout">
+                    <Button variant="contained">REALIZAR PEDIDO</Button>
+                </Link>
+                <br /> <br />
+                <Button onClick={() => vaciarCarrito()} variant="outlined">VACIAR CARRITO</Button>
+            </>
+            )}
+            
     </div>
-        
-    
-    // ********************
-    
-    // <div>
-    //     <h1>CARRITO</h1>
 
-    //     {carrito && carrito.map((resp) => {
-    //         return (
-    //             <div key={resp.id}>    
-    //                 <p> ------------</p>
-    //                 <h3>{resp.titulo}</h3>
-    //                 <h4>Precio: {resp.precio}</h4>
-    //                 <h4>Cantidad: {resp.cantidad}</h4>
-    //                 <h4>Total: {resp.precio * resp.cantidad}</h4>
-    //             </div>
-    //         )
-    //     })}
-    //     <p> ------------ </p>
-    //     <h2>TOTAL COMPRA: $ {totalCarrito()}</h2>
-        
-    //     <br />
-    //     <Link to="/checkout">
-    //         <Button variant="contained">REALIZAR PEDIDO</Button>
-    //     </Link>
-
-    // </div>
   )
 }
 
